@@ -2,7 +2,7 @@ const offlineCache = 'v1';
 
 const cacheFiles = [
 	'index.html',
-	'restaurant/html',
+	'restaurant.html',
 	'css/styles.css',
 	'js/main.js',
 	'js/restaurant_info.js',
@@ -19,9 +19,9 @@ self.addEventListener('install', event => {
 		caches.open(offlineCache)
 			.then(cache => {
 				console.log('service worker is cashing files');
-				cache.addAll(cacheFiles);
+				return cache.addAll(cacheFiles);
 			})
-			.then( ()=> {
+			.then(() => {
 				self.skipWaiting()
 			})
 	);
@@ -32,10 +32,10 @@ self.addEventListener('activate', event => {
 	console.log('Service worker is activated');
 
 	//remove old cache files
-	event.waitUntil(
-		caches.keys().then(cacheVersion => {
+/*	event.waitUntil(
+		caches.keys().then(offlineCache => {
 			return Promise.all(
-				cacheVersion.map(cache => {
+				offlineCache.map(cache => {
 					if(cache !== offlineCache){
 						console.log('service worker deleting old cache files');
 						return caches.delete(cache);
@@ -43,5 +43,12 @@ self.addEventListener('activate', event => {
 				})
 			)
 		})
-		)
+		)*/ //accidentally removing cached files
+})
+
+//showing files if offline
+self.addEventListener('fetch', event => {
+	event.respondWith(
+		fetch(event.request).catch( () => caches.match(event.request))
+	)
 })
