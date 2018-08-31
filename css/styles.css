@@ -319,3 +319,19 @@ nav h1 a {
 #restaurant-hours td {
   color: #000000;
 }
+
+/* ====================== Media Queries ====================== */
+/* Large View */
+@media only screen and (min-width: 1300px) {
+    body {
+        width: 1300px;
+        margin: 0 auto;
+    }
+}
+/* Small View */
+@media only screen and (max-width: 400px) {
+    nav h1 a {
+        font-size:.8em;
+        letter-spacing: 3px;
+    }
+}
