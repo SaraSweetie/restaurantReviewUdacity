@@ -1,11 +1,9 @@
 /* Register Service Worker */
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register('./sw.js')
-    .then (reg => {
-      console.log('service worker registered!');
-    }).catch( err => {
-      console.log(`There was an error registering: ${err}`);
-    });
+  navigator.serviceWorker
+    .register('./sw.js')
+    .then (reg => {console.log('service worker registered!');})
+    .catch( err => {console.log(`There was an error registering: ${err}`);});
 }
 
 let restaurants,
