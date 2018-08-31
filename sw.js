@@ -33,9 +33,9 @@ self.addEventListener('activate', event => {
 
 	//remove old cache files
 /*	event.waitUntil(
-		caches.keys().then(offlineCache => {
+		caches.keys().then(currentCache => {
 			return Promise.all(
-				offlineCache.map(cache => {
+				currentCache.map(cache => {
 					if(cache !== offlineCache){
 						console.log('service worker deleting old cache files');
 						return caches.delete(cache);
