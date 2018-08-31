@@ -158,15 +158,15 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
+  const name = document.createElement('h2');
+  name.innerHTML = restaurant.name;
+  li.append(name);
+
   const image = document.createElement('img');
   // need to add alt text for images, add alt text to restaurants.jason file?
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
-
-  const name = document.createElement('h2');
-  name.innerHTML = restaurant.name;
-  li.append(name);
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
