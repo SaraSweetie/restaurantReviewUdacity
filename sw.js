@@ -19,7 +19,7 @@ self.addEventListener('install', event => {
 		caches.open(offlineCache)
 			.then(cache => {
 				console.log('service worker is cashing files');
-				cashe.addAll(cacheFiles);
+				cache.addAll(cacheFiles);
 			})
 			.then( ()=> {
 				self.skipWaiting()
@@ -30,4 +30,18 @@ self.addEventListener('install', event => {
 //Activate
 self.addEventListener('activate', event => {
 	console.log('Service worker is activated');
+
+	//remove old cache files
+	event.waitUntil(
+		caches.keys().then(cacheVersion => {
+			return Promise.all(
+				cacheVersion.map(cache => {
+					if(cache !== offlineCache){
+						console.log('service worker deleting old cache files');
+						return caches.delete(cache);
+					}
+				})
+			)
+		})
+		)
 })
