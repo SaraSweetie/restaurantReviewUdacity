@@ -8,32 +8,37 @@
   <title>Restaurant Info</title>
 </head>
 
-<body class="inside">
+<body>
   <header>
     <nav>
       <h1><a href="/" title="Home" aria-label="Home">Restaurant Reviews</a></h1>
     </nav>
+    <a class="screenreader" href="#skipMap">Skip Interactive Map</a>
+    <section id="map-container" role="application">
+      <div id="map"></div>
+    </section>
     <ul id="breadcrumb" aria-label="Breadcrumb">
       <li><a href="/">Home</a></li>
     </ul>
   </header>
 
   <main id="maincontent" role="main">
-    <a class="screenreader" href="#skipMap">Skip Interactive Map</a>
-    <section id="map-container" role="application">
-      <div id="map"></div>
+    <section name="skipMap" id="skipMap" class="restaurant-wrapper" tabindex="-1"> 
+      <section id="restaurant-container">
+        <div class="medium-screen-wrapper">
+          <h2 id="restaurant-name"></h2>
+          <img id="restaurant-img">
+          <p id="restaurant-cuisine"></p>
+        </div>
+        <div class="medium-screen-wrapper">
+          <p id="restaurant-address"></p>
+          <table id="restaurant-hours"></table>
+        </div>
+      </section>
+      <section id="reviews-container">
+        <ul id="reviews-list"></ul>
     </section>
-    <section name="skipMap" id="skipMap" tabindex="-1">
-    <section id="restaurant-container">
-      <h2 id="restaurant-name"></h2>
-      <img id="restaurant-img">
-      <p id="restaurant-cuisine"></p>
-      <p id="restaurant-address"></p>
-      <table id="restaurant-hours"></table>
-    </section>
-    <section id="reviews-container">
-      <ul id="reviews-list"></ul>
-    </section>
+  </section>
   </main>
 
   <footer id="footer">
