@@ -247,6 +247,7 @@ nav h1 a {
   height: 250px;
   height: auto;
   max-width: 100%;
+  display: block;
 }
 #restaurant-address {
   font-size: 20pt;
@@ -374,7 +375,6 @@ nav h1 a {
       width: 100%;
       height: auto;
       max-width: 100%;
-      display: block;
     }
     #restaurant-address,
     #restaurant-hours td {
@@ -439,7 +439,6 @@ nav h1 a {
       width: 100%;
       height: auto;
       max-width: 100%;
-      display: block;
     }
     #restaurant-address {
       font-size: 14pt;

@@ -174,6 +174,7 @@ createRestaurantHTML = (restaurant) => {
   // need to add alt text for images, add alt text to restaurants.jason file?
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.alt;
   li.append(image);
 
   const neighborhood = document.createElement('p');
