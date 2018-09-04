@@ -1,6 +1,6 @@
 const offlineCache = 'v1';
 
-const cacheFiles = [
+let cacheFiles = [
 	'index.html',
 	'restaurant.html',
 	'css/styles.css',
@@ -49,6 +49,18 @@ self.addEventListener('activate', event => {
 //showing files if offline
 self.addEventListener('fetch', event => {
 	event.respondWith(
-		fetch(event.request).catch( () => caches.match(event.request))
+		caches.match(event.request).then( response =>{
+			if (response) return response;
+			return fetch(event.request);
+		})
+	);
+	console.log('files are offline');
+});
+
+/* self.addEventListener('fetch', event => {
+	event.respondWith(
+		fetch(event.request).catch( () => {
+			caches.match(event.request)
+		})
 	)
-})
+});*/ //old way not really working...

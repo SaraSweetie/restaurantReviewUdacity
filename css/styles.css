@@ -324,15 +324,15 @@ nav h1 a {
 }
 
 /* ====================== Media Queries ====================== */
-/* Large View */
+/* Large View - commented out to meet project requirements
 @media only screen and (min-width: 1300px) {
-    /* index.html */
+    index.html
     body {
         width: 1300px;
         margin: 0 auto;
     }
-    /* restaurant.html */
-}
+
+} /*
 /* Middle View */
 @media only screen and (min-width: 412px) and (max-width: 768px) {
     /* index.html */
